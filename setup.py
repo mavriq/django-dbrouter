@@ -37,6 +37,7 @@ setup(
     version=__version__,
     author='mavriq',
     author_email='admin@mavriq.net',
+    url='https://github.com/mavriq/django-dbrouter',
     description='Simple and usable database router for django',
     long_description=long_description(),
     license='LGPG',
