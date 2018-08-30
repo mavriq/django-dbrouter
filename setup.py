@@ -5,14 +5,9 @@ from __future__ import unicode_literals, absolute_import
 import os
 import sys
 from setuptools import setup
-# from importlib import import_module
 
 PKG_NAME = 'dbrouter'
 CWD = os.path.dirname(__file__)
-
-# __version__ = import_module('dbrouter.version').__version__
-# VERSION = (0, 1, 'alpha')
-# __version__ = '.'.join(map(str, VERSION))
 
 
 sys.path.insert(0, os.path.join(CWD, PKG_NAME))
@@ -50,7 +45,7 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Aproved :: LGPL License',
+        'License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)',
         'Natural Language :: English',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
