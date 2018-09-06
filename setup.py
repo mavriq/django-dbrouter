@@ -15,7 +15,8 @@ from version import __version__
 
 
 def long_description():
-    return open(os.path.join(CWD, 'README.md')).read()
+    kwargs = ({"encoding": "utf-8"} if sys.version_info[0] > 2 else {})
+    return open(os.path.join(CWD, 'README.md'), 'r', **kwargs).read()
 
 
 def get_requirements():
