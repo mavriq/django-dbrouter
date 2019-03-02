@@ -19,15 +19,6 @@ def long_description():
     return open(os.path.join(CWD, 'README.md'), 'r', **kwargs).read()
 
 
-def get_requirements():
-    return [
-        r
-        for r in (
-            r.strip() for r in open('requirements.txt', 'r').readlines())
-        if r and not r.startswith('#')
-    ]
-
-
 setup(
     name='django-dbrouter',
     version=__version__,
@@ -36,15 +27,16 @@ setup(
     url='https://github.com/mavriq/django-dbrouter',
     description='Simple and usable database router for django',
     long_description=long_description(),
+    long_description_content_type='text/markdown; charset=UTF-8; variant=GFM',
     license='LGPG',
     packages=[PKG_NAME],
-    install_requires=get_requirements(),
+    install_requires=['Django'],
     keywords=['django-dbrouter',
               'DATABASE_ROUTERS',
               'database router',
               'Django'],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)',
         'Natural Language :: English',
