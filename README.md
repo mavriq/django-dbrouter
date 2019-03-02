@@ -1,13 +1,21 @@
+[[_TOC_]]
+
 # Description
 
 Set of simple and usable database routers for django applitaions
 
 
-## DbByAppRouter
+## dbrouter.DbByAppRouter
 
-Database router, that allows you to specify django-applications or models, that will work with this DB
+`dbrouter.DbByAppRouter` allows you to specify django-applications or models, that will work with this database.
 
-## Example
+
+## dbrouter.RestrictMigrations
+
+`dbrouter.RestrictMigrations` allows you to specify a database to which you can not apply migrations.
+For example, with read-only access.
+
+# Example
 
 
 ```python
@@ -23,19 +31,24 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'db.sqlite3',
     },
+    # 'dbrouter.DbByAppRouter' usage example
     'external': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'some_other',
         .....
         'applications': [
             'some_app',                 #  all models on some_app
             'other_app.OnlyThisModel',  #  OnlyThisModel on other_app
         ],
-
+    },
+    # 'dbrouter.RestrictMigrations' usage example
+    'some_read_only_external_database': {
+        'NAME': 'some_read_only_external_database',
+        .....
         'allow_migrate': False,
         # False - disable migrations
         # True - do not disable migrations
         # None - default
-    }
+    },
 }
 
 ...

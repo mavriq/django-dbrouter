@@ -8,7 +8,7 @@ from django.utils.six import string_types
 
 class DbByAppRouter(object):
     '''
-    Database router, that allows you to specify django-applications or models, that will work with this DB
+    Database router, that allows you to specify django-applications or models, that will work with this database.
 
     Usage:
     ```
