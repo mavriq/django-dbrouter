@@ -6,7 +6,7 @@ from django.conf import settings
 
 class RestrictMigrations(object):
     '''
-    Database router позволяюий запретить выполнение миграций для определенных db
+    Database router that allows you to prevent migrations on some DB
     Usage:
     ```
     DATABASES = {

@@ -5,7 +5,7 @@ Set of simple and usable database routers for django applitaions
 
 ## DbByAppRouter
 
-Database router, позволяющий указать django-приложения и модели, работающие с данной db
+Database router, that allows you to specify django-applications or models, that will work with this DB
 
 ## Example
 
