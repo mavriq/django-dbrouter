@@ -41,4 +41,4 @@ class RestrictMigrations(object):
         pass
 
     def allow_migrate(self, db, *args, **kwargs):
-        return settings.DATABASES[db].get('allow_migrate', True) and None
+        return settings.DATABASES[db].get('allow_migrate')
