@@ -3,7 +3,13 @@
 from __future__ import absolute_import, unicode_literals
 import django
 from django.conf import settings
-from django.utils.six import string_types
+try:
+    from django.utils.six import string_types
+except ImportError:  
+    try:                        
+        from six import string_types  
+    except ImportError:
+        string_types = (str, )
 
 
 class DbByAppRouter(object):
