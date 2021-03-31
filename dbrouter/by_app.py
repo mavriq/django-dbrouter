@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import, unicode_literals
+import sys
 import django
 from django.conf import settings
-from django.utils.six import string_types
+try:
+    from django.utils.six import string_types
+except ImportError:  
+    if sys.version_info[0] > 2:
+        string_types = (str, )
+    else:
+        from six import string_types
 
 
 class DbByAppRouter(object):
