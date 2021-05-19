@@ -15,10 +15,21 @@ Set of simple and usable database routers for django applitaions
 `dbrouter.RestrictMigrations` allows you to specify a database to which you can not apply migrations.
 For example, with read-only access.
 
+
+## dbrouter.parse_database_url
+
+`dbrouter.parse_database_url` allows you to specify a database connection as one string
+
+
 # Example
 
 
 ```python
+
+from dbrouter import parse_database_url
+
+# ...
+
 INSTALLED_APPS = [
     ...
     'some_app',
@@ -49,6 +60,11 @@ DATABASES = {
         # True - do not disable migrations
         # None - default
     },
+    'some_db_added_by_url': parse_database_url(
+        # DB in remoge PostgreSQL-server on some schema
+        'psql://user:pass@remote.db.host/options=-c search_path=some_schema',
+        applications=['some_new_app'],
+        allow_migrate=False)
 }
 
 ...
