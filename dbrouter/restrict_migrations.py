@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import, unicode_literals
-from django.conf import settings
+import django
 
 
 class RestrictMigrations(object):
@@ -41,4 +41,4 @@ class RestrictMigrations(object):
         pass
 
     def allow_migrate(self, db, *args, **kwargs):
-        return settings.DATABASES[db].get('allow_migrate')
+        return django.conf.settings.DATABASES[db].get('allow_migrate')

@@ -3,10 +3,9 @@
 from __future__ import absolute_import, unicode_literals
 import sys
 import django
-from django.conf import settings
 try:
     from django.utils.six import string_types
-except ImportError:  
+except ImportError:
     if sys.version_info[0] > 2:
         string_types = (str, )
     else:
@@ -50,7 +49,7 @@ class DbByAppRouter(object):
 
     def __init__(self):
         self.app_databases = {}
-        for db, opts in settings.DATABASES.items():
+        for db, opts in django.conf.settings.DATABASES.items():
             apps = opts.get('applications')
             if not apps:
                 continue
