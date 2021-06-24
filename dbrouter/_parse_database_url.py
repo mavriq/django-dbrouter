@@ -9,12 +9,15 @@ else:
 
 def parse_database_url(database_url, **kwargs):
     #
-    o = urlparse(database_url)
+    o = urlparse(str(database_url))
     #
     _result = {'NAME': o.path.lstrip('/')}
     #
     if not o.scheme or o.scheme.lower() in ('sqlite', 'sqlite3'):
-        _result['ENGINE'] = 'django.db.backends.sqlite3'
+        _result = {
+            'NAME': o.path,
+            'ENGINE': 'django.db.backends.sqlite3',
+        }
     #
     elif o.scheme.lower() in ('pg', 'psql', 'postgres', 'postgresql'):
         _result['ENGINE'] = 'django.db.backends.postgresql'
