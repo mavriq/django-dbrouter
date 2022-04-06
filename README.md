@@ -62,7 +62,7 @@ DATABASES = {
     },
     'some_db_added_by_url': parse_database_url(
         # DB in remoge PostgreSQL-server on some schema
-        'psql://user:pass@remote.db.host/options=-c search_path=some_schema',
+        'psql://user:pass@remote.db.host/dbname?options=-c search_path=some_schema',
         applications=['some_new_app'],
         allow_migrate=False)
 }
