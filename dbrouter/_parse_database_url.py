@@ -5,11 +5,15 @@ if sys.version_info[0] > 2:
     from urllib.parse import urlparse, parse_qs
 else:
     from urlparse import urlparse, parse_qs
+import re
 
 
 def parse_database_url(database_url, **kwargs):
     #
-    o = urlparse(str(database_url))
+    _jdbc_parser = re.compile('^(?:jdbc:)?(?P<uri>.*)$')
+    database_url = _jdbc_parser.search(str(database_url))['uri']
+    #
+    o = urlparse(database_url)
     #
     _result = {'NAME': o.path.lstrip('/')}
     #
