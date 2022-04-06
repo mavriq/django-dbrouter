@@ -63,9 +63,9 @@ class DbByAppRouter(object):
                     '`applications` must be string or list of strings')
 
     def __get_database_of_names(self, app_label, model_name):
-        return self.app_databases.get('{0}.{1}'.format(app_label, model_name),
-                                      self.app_databases.get(app_label,
-                                                             self.DEFAULT))
+        return (self.app_databases.get('{0}.{1}'.format(app_label, model_name))
+                or
+                self.app_databases.get(app_label, self.DEFAULT))
 
     def _get_database_of(self, model):
         app_label = model._meta.app_label
